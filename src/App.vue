@@ -1,7 +1,8 @@
 <template>
 
-<div>{{ greet }} {{ name }}</div>
-<div v-text="color"></div>
+<div v-bind:id="color">{{ greet }} {{ name }}</div>
+<div v-text="color" v-bind:class="italicBool && 'underline'"></div>
+<div :class="italicBool ? 'underline' : 'text-bold'">Style Test</div>
   
 </template>
 
@@ -12,7 +13,8 @@ export default {
     return {
       name: "Roy", 
       greet: "Hello",
-      color: "Green"
+      color: "Green",
+      italicBool: false,
     }
   }
 }
@@ -20,11 +22,25 @@ export default {
 </script>
 
 <style>
-  #app {
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+
 </style>
