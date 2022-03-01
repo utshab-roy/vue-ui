@@ -1,21 +1,43 @@
 <template>
-  <h2>{{name }}</h2>
-
   <div>
-    <!-- multiple method calling on single click event -->
-    <button v-on:click="changeName($event), increment(5, $event)">Change Name</button>
+    <pre>
+      {{ JSON.stringify(formValues, null, 2) }}
+    </pre>
   </div>
 
-  <h2>{{ count }}</h2>
+  <form>
 
-  <div>
-    <button @click="count++">Count +</button>
-    <br>
-    <button @click="count--">Count -</button>
-    <br>
-    <button @click="increment(5, $event)">Increment 5</button>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" v-model="formValues.name">
+    </div>
 
-  </div>
+     <div>
+      <label for="profile">Profile Summary:</label>
+      <textarea id="profile" v-model="formValues.profileSummary" />
+    </div>
+
+    <div>
+      <label for="country">Country:</label>
+      <select id="country" v-model="formValues.country">
+          <option value=""></option>
+          <option value="bangladesh">Bangladesh</option>
+          <option value="japan">Japan</option>
+          <option value="usa">USA</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="job-location">Job Location:</label>
+      <select id="job-location" multiple v-model="formValues.jobLocation">
+          <option value=""></option>
+          <option value="bangladesh">Bangladesh</option>
+          <option value="japan">Japan</option>
+          <option value="usa">USA</option>
+      </select>
+    </div>
+
+  </form>
 
 </template>
 
@@ -24,19 +46,15 @@ export default {
   name: "App",
   data() {
     return {
-      name: "Roy",
-      count: 0
-    }
+      formValues: {
+        name: "",
+        profileSummary: "",
+        country: "",
+        jobLocation: [],
+      }
+    };
   },
   methods: {
-    changeName(event) {
-      console.log('event in changeName', event);
-      this.name = "Batman"
-    },
-    increment(number, event){
-      this.count += number;
-      console.log("event in increment method", event);
-    }
   },
 };
 </script>
@@ -50,15 +68,28 @@ export default {
   color: #2c3e50;
 }
 
-.underline {
-  text-decoration: underline;
-}
-
-.text-italic {
-  font-style: italic;
-}
-
-.text-bold {
+label {
   font-weight: bold;
+  display: flex;
+  margin-bottom: 5px;
+}
+input + label {
+  font-weight: bold;
+  display: inline-flex;
+  margin-right: 20px;
+}
+input[type="text"],
+textarea,
+select {
+  display: block;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 </style>
