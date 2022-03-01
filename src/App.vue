@@ -5,11 +5,12 @@
     </pre>
   </div>
 
-  <form @submit="submitForm">
+<!-- using preventDefault as modifyer -->
+  <form @submit.prevent="submitForm">
 
     <div>
       <label for="name">Name:</label>
-      <input type="text" id="name" v-model="formValues.name">
+      <input type="text" id="name" v-model.trim.lazy="formValues.name">
     </div>
 
      <div>
@@ -66,6 +67,12 @@
     </div>
 
     <div>
+      <label for="age">Age</label>
+      <!-- using number modifyer to make the input store as number it will not act as string -->
+       <input type="number" id="age" v-model.number="formValues.age"/>
+    </div>
+
+    <div>
       <button type="submit">Submit</button>
     </div>
 
@@ -86,13 +93,14 @@ export default {
         // this can be boolean value, to use it no need of true-value, false value
         remoteWork: 'no', 
         skillSet: [],
-        yearsOfExperience: ''
+        yearsOfExperience: '',
+        age: null,
+
       }
     };
   },
   methods: {
-    submitForm(event) {
-      event.preventDefault()
+    submitForm() {
       console.log('Form values', this.formValues)
     }
   },
