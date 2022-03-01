@@ -2,7 +2,8 @@
   <h2>{{name }}</h2>
 
   <div>
-    <button v-on:click="changeName">Change Name</button>
+    <!-- multiple method calling on single click event -->
+    <button v-on:click="changeName($event), increment(5, $event)">Change Name</button>
   </div>
 
   <h2>{{ count }}</h2>
@@ -12,7 +13,7 @@
     <br>
     <button @click="count--">Count -</button>
     <br>
-    <button @click="increment(5)">Increment 5</button>
+    <button @click="increment(5, $event)">Increment 5</button>
 
   </div>
 
@@ -28,11 +29,13 @@ export default {
     }
   },
   methods: {
-    changeName() {
+    changeName(event) {
+      console.log('event in changeName', event);
       this.name = "Batman"
     },
-    increment(number){
+    increment(number, event){
       this.count += number;
+      console.log("event in increment method", event);
     }
   },
 };
