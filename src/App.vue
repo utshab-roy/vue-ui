@@ -5,7 +5,7 @@
     </pre>
   </div>
 
-  <form>
+  <form @submit="submitForm">
 
     <div>
       <label for="name">Name:</label>
@@ -36,6 +36,38 @@
           <option value="usa">USA</option>
       </select>
     </div>
+  
+    <div>
+      <input type="checkbox" id="remote-work" 
+      v-model="formValues.remoteWork" 
+      true-value="yes" 
+      false-value="no" />
+      <label for="remoteW-work">Open for remote work ?</label>
+    </div>
+
+    <div>
+      <label>Skill Set</label>
+      <input type="checkbox" id="html" value="html" v-model="formValues.skillSet"/>
+      <label for="html">HTML</label>
+      <input type="checkbox" id="javascript" value="javascript" v-model="formValues.skillSet"/>
+      <label for="javascript">JavaScript</label>
+      <input type="checkbox" id="css" value="css" v-model="formValues.skillSet"/>
+      <label for="css">CSS</label>
+    </div>
+
+    <div>
+      <label>Years of Experience</label>
+      <input type="radio" id="0-2" value="0-2" v-model="formValues.yearOfExperience"/>
+      <label for="0-2">0-2</label>
+      <input type="radio" id="3-5" value="3-5" v-model="formValues.yearOfExperience"/>
+      <label for="3-5">3-5</label>
+      <input type="radio" id="5-10" value="5-10" v-model="formValues.yearOfExperience"/>
+      <label for="5-10">5-10</label>
+    </div>
+
+    <div>
+      <button type="submit">Submit</button>
+    </div>
 
   </form>
 
@@ -51,10 +83,18 @@ export default {
         profileSummary: "",
         country: "",
         jobLocation: [],
+        // this can be boolean value, to use it no need of true-value, false value
+        remoteWork: 'no', 
+        skillSet: [],
+        yearsOfExperience: ''
       }
     };
   },
   methods: {
+    submitForm(event) {
+      event.preventDefault()
+      console.log('Form values', this.formValues)
+    }
   },
 };
 </script>
