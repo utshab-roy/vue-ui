@@ -1,15 +1,11 @@
 <template>
-
   <div>
-    <pre>
-      {{ JSON.stringify(firstName, null, 2) }}
-      {{ JSON.stringify(lastName, null, 2) }}
-    </pre>
-
-    <p>{{ fullName }}</p>
-
-    <button @click="changeName">Change Name</button>
+   <p>Volume level: {{ volume }}</p>
+   <button @click="volume += 2">Increase</button>
+   <button @click="volume -= 2">Decrease</button>
   </div>
+
+
 
 </template>
 
@@ -18,25 +14,17 @@ export default {
   name: "App",
   data() {
     return {
-      firstName: 'John',
-      lastName: 'Doe',
-    };
-  },
-  methods: {
-    changeName() {
-      this.fullName = 'Utshab Roy';
-
+      volume: 0
     }
   },
+  methods: {
+  },
   computed: {
-    fullName: {
-      get() {
-        return `${this.firstName} ${this.lastName}`;
-      },
-      set(value) {
-        const names = value.split(' ')
-        this.firstName = names[0] 
-        this.lastName = names[1] 
+  },
+  watch: {
+    volume(newValue, prevValue) {
+      if(newValue > prevValue && newValue === 16) {
+        alert('Too much val is bad for hearing (alert pop up only increase)');
       }
     }
   }
