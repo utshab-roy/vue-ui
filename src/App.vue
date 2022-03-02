@@ -1,25 +1,27 @@
 <template>
-    <div>
-        <Article title="Hello world Arch" :likes="50" :isPublished="true" />
-    </div>
+    <h2>On App component - username: {{ name }}</h2>
+    <ComponentC />
 </template>
 
 <script>
-import Greet from "./components/Greet.vue";
-import Article from "./components/Article.vue";
+import ComponentC from "./components/ComponentC.vue";
 
 export default {
     name: "App",
     data() {
         return {
-            firstName: 'Utshab',
-            lastName: 'Roy'
+            name: 'utshab-roy'
         }
     },
 
     components: {
-        Greet, Article
+        ComponentC
     },
+    provide() { // the provide method pass the username to the child component
+        return {
+            username: this.name
+        }
+    }
 }
 </script>
 
