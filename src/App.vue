@@ -5,7 +5,11 @@
    <button @click="volume -= 2">Decrease</button>
   </div>
 
-
+  <div>
+    <input type="text" v-model="movie">
+    <input type="text" v-model="movieInfo.title">
+    <input type="text" v-model="movieInfo.actor">
+  </div>
 
 </template>
 
@@ -14,7 +18,12 @@ export default {
   name: "App",
   data() {
     return {
-      volume: 0
+      volume: 0,
+      movie: 'Inception',
+      movieInfo: {
+        title: '',
+        actor: '',
+      }
     }
   },
   methods: {
@@ -26,6 +35,17 @@ export default {
       if(newValue > prevValue && newValue === 16) {
         alert('Too much val is bad for hearing (alert pop up only increase)');
       }
+    },
+    movie: {
+      handler(newValue) {
+        console.log(`Calling movie name: ${newValue}`);
+      }, immediate:true // this will immediately call the watch when the page load
+    },
+    movieInfo: {
+      handler(newValue) {
+        console.log(`Calling API with movie title: ${newValue.title} and actor: ${newValue.actor}`);
+      }, 
+      deep: true // deep object set to true and is NECESSARY in order to observe object data value
     }
   }
 };
