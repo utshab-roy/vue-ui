@@ -1,6 +1,11 @@
 <template>
     <div>
-        <Greet />
+        <Greet name="Bruce" heroName="Batman" />
+        <Greet name="Kent" heroName="Superman" />
+        <Greet name="Diana" heroName="Wonder Woman" />
+        <!-- heroName or hero-name both coding convention is fine, vue do this data binding auto -->
+        <Greet v-bind:name="firstName" :heroName="lastName" />
+        <Greet v-bind:name="firstName" :hero-name="lastName" />
     </div>
 </template>
 
@@ -11,7 +16,8 @@ export default {
     name: "App",
     data() {
         return {
-
+            firstName: 'Utshab',
+            lastName: 'Roy'
         }
     },
 

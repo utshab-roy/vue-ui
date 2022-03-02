@@ -1,12 +1,13 @@
 <template>
     <div>
-        <h2>Hello, Hulk</h2>
+        <h2>Hello, {{ name }} AKA {{ heroName }}</h2>
     </div>
 </template>
 
 <script>
     export default {
         name: 'Greet',
+        props: ['name', 'heroName'],
         data() {
             return {
                 
