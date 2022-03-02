@@ -1,22 +1,29 @@
 <template>
-    <h2>On App component - username: {{ name }}</h2>
-    <ComponentC />
+    <button @click="showPopup = true">Show Popup</button>
+    <Popup v-show="showPopup" @close="closePopup" />
 </template>
 
 <script>
-import ComponentC from "./components/ComponentC.vue";
+import Popup from "./components/Popup.vue";
+
 
 export default {
     name: "App",
     data() {
         return {
-            name: 'utshab-roy'
+            showPopup: false,
+        }
+    },
+    methods: {
+        closePopup(name) {
+            this.showPopup = false;
+            console.log(`The name: ${name} came from Popup component and render to App component `);
         }
     },
 
     components: {
-        ComponentC
-    },
+    Popup
+},
     provide() { // the provide method pass the username to the child component
         return {
             username: this.name
