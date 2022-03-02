@@ -1,16 +1,12 @@
 <template>
     <div>
-        <Greet name="Bruce" heroName="Batman" />
-        <Greet name="Kent" heroName="Superman" />
-        <Greet name="Diana" heroName="Wonder Woman" />
-        <!-- heroName or hero-name both coding convention is fine, vue do this data binding auto -->
-        <Greet v-bind:name="firstName" :heroName="lastName" />
-        <Greet v-bind:name="firstName" :hero-name="lastName" />
+        <Article title="Hello world Arch" :likes="50" :isPublished="true" />
     </div>
 </template>
 
 <script>
 import Greet from "./components/Greet.vue";
+import Article from "./components/Article.vue";
 
 export default {
     name: "App",
@@ -22,7 +18,7 @@ export default {
     },
 
     components: {
-        Greet,
+        Greet, Article
     },
 }
 </script>
