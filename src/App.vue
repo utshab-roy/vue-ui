@@ -6,7 +6,17 @@
     <Card>
         <img src="https://picsum.photos/200">
     </Card>
-    <Card />
+    <Card>
+        <template v-slot:header>
+            Header
+        </template>
+        <template v-slot:default>
+            <img src="https://picsum.photos/200">
+        </template>
+        <template v-slot:footer>
+            <button>Footer BTN</button>
+        </template>
+    </Card>
 </template>
 
 <script>

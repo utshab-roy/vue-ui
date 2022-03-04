@@ -1,6 +1,14 @@
 <template>
     <div class="card">
-        <slot>Default Content If noting is passed from Parent</slot>
+        <div id="card-header">
+            <slot name="hearder"></slot>
+        </div>
+        <div id="card-content">
+            <slot></slot>
+        </div>
+        <div id="card-footer">
+            <slot name="footer"></slot>
+        </div>
     </div>
 </template>
 
