@@ -1,19 +1,14 @@
 <template>
-    <NameList>
-        <template v-slot:default="slotProps">
-             FIRSTNAME: {{ slotProps.firstName }} LASTNAME: {{ slotProps.lastName }}
-        </template>
-    </NameList>
-
-    <NameList>
-        <template v-slot:default="slotProps">
-            LASTNAME: {{ slotProps.lastName }} FIRSTNAME: {{ slotProps.firstName }}
-        </template>
-    </NameList>
+    <h4>App component text</h4>
+    <!-- 
+        if we use slot for the child then the parent component css will be 
+        overwritten by parent even though child component has scoped css
+    -->
+    <ChildStyles/>
 </template>
 
 <script>
-import NameList from './components/NameList.vue'
+import ChildStyles from './components/ChildStyles.vue'
 
 export default {
     name: "App",
@@ -25,17 +20,21 @@ export default {
     },
 
     components: {
-    NameList,
-}
+    ChildStyles
+    }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+}
+
+h4 {
+    color: orange;
 }
 </style>
