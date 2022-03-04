@@ -1,13 +1,12 @@
 <template>
     <div class="card">
-        {{ content }}
+        <slot>Default Content If noting is passed from Parent</slot>
     </div>
 </template>
 
 <script>
     export default {
         name: 'Card',
-        props: ['content']
     }
 </script>
 
