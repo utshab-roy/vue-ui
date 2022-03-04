@@ -1,23 +1,23 @@
 <template>
-    <Input v-model="name" />
+    <Card content="Card content 1"/>
+    <Card content="Card content 2"/>
 </template>
 
 <script>
-import Input from "./components/Input.vue";
+import Card from './components/Card.vue'
 
 export default {
     name: "App",
     data() {
         return {
-            name: '',
         }
-    },
+    }, 
     methods: {
     },
 
     components: {
-    Input
-}
+        Card
+    }
 }
 </script>
 
