@@ -1,9 +1,9 @@
 <template>
-    <Data />
+    <DemoOne />
 </template>
 
 <script>
-import Data from "./components/Data.vue";
+import DemoOne from "./components/DemoOne.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +11,7 @@ export default {
             
         };
     },
-    components: { Data }
+    components: { DemoOne }
 }
 </script>
 
