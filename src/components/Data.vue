@@ -26,7 +26,7 @@ export default {
         const greet = `Hello, ${c_firstName.value} ${c_firstName.value} a.k.a ${c_heroName.value}`
 
         /**
-         * reactive can only accept object
+         * reactive can only accept object and data() internally use reactive function
          */
         const  state = reactive({
             firstName: 'Princess',
