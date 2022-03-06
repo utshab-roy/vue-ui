@@ -1,34 +1,27 @@
 <template>
-    <button @click="showPopup = true">Show Popup</button>
-    <Popup v-show="showPopup" @close="closePopup" />
+    <button @click="activeTab = 'TabA'">Tab A</button>
+    <button @click="activeTab = 'TabB'">Tab B</button>
+    <button @click="activeTab = 'TabC'">Tab C</button>
+
+    <TabA v-if="activeTab === 'TabA'"/>
+    <TabB v-if="activeTab === 'TabB'"/>
+    <TabC v-if="activeTab === 'TabC'"/>
 </template>
 
 <script>
-import Popup from "./components/Popup.vue";
+import TabA from "./components/TabA.vue"
+import TabB from "./components/TabB.vue";
+import TabC from "./components/TabC.vue";
 
 
 export default {
     name: "App",
     data() {
         return {
-            showPopup: false,
-        }
+            activeTab: 'TabA'
+        };
     },
-    methods: {
-        closePopup(name) {
-            this.showPopup = false;
-            console.log(`The name: ${name} came from Popup component and render to App component `);
-        }
-    },
-
-    components: {
-    Popup
-},
-    provide() { // the provide method pass the username to the child component
-        return {
-            username: this.name
-        }
-    }
+    components: { TabA, TabB, TabC }
 }
 </script>
 
