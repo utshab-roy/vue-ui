@@ -1,9 +1,9 @@
 <template>
-    <DemoTwo />
+    <Methods />
 </template>
 
 <script>
-import DemoTwo from "./components/DemoTwo.vue";
+import Methods from "./components/Methods.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +11,7 @@ export default {
             
         };
     },
-    components: { DemoTwo }
+    components: { Methods }
 }
 </script>
 
