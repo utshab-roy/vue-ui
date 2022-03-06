@@ -1,11 +1,10 @@
 <template>
-    <CreatePost />
-    <PostList />
+    <TemplateRef />
 </template>
 
 <script>
-import PostList from "./components/PostList.vue";
-import CreatePost from "./components/CreatePost.vue";
+import TemplateRef from "./components/TemplateRef.vue";
+
 export default {
     name: "App",
     data() {
@@ -13,7 +12,7 @@ export default {
             
         };
     },
-    components: { PostList, CreatePost }
+    components: { TemplateRef }
 }
 </script>
 
