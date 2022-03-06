@@ -1,12 +1,18 @@
 <template>
     <div>
-        Tab C contnent
+        Tab C Content
+        <input type="text" />
     </div>
 </template>
 
 <script>
     export default {
-        name: 'TabC'
+        name: 'TabC',
+        data() {
+            return {
+                name: ''
+            }
+        },
     }
 </script>
 

@@ -3,11 +3,16 @@
     <button @click="activeTab = 'TabB'">Tab B</button>
     <button @click="activeTab = 'TabC'">Tab C</button>
 
-    /**
+ 
+    <!--
     * when I have a requirements to switch between components
     * I should implement in this approach
-    */
-    <component :is="activeTab"/>
+    * The <keep-alive> tag will cache data of the component so that
+    * we do not loss form or any data
+    -->
+    <keep-alive>
+        <component :is="activeTab"/>
+    </keep-alive>
 </template>
 
 <script>
