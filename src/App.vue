@@ -1,9 +1,9 @@
 <template>
-    <VModel />
+    <Computed />
 </template>
 
 <script>
-import VModel from "./components/VModel.vue";
+import Computed from "./components/Computed.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +11,7 @@ export default {
             
         };
     },
-    components: { VModel }
+    components: { Computed }
 }
 </script>
 
