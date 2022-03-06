@@ -1,34 +1,17 @@
 <template>
-    <button @click="activeTab = 'TabA'">Tab A</button>
-    <button @click="activeTab = 'TabB'">Tab B</button>
-    <button @click="activeTab = 'TabC'">Tab C</button>
-
- 
-    <!--
-    * when I have a requirements to switch between components
-    * I should implement in this approach
-    * The <keep-alive> tag will cache data of the component so that
-    * we do not loss form or any data
-    -->
-    <keep-alive>
-        <component :is="activeTab"/>
-    </keep-alive>
+    <PostList />
 </template>
 
 <script>
-import TabA from "./components/TabA.vue"
-import TabB from "./components/TabB.vue";
-import TabC from "./components/TabC.vue";
-
-
+import PostList from "./components/PostList.vue";
 export default {
     name: "App",
     data() {
         return {
-            activeTab: 'TabA'
+            
         };
     },
-    components: { TabA, TabB, TabC }
+    components: { PostList }
 }
 </script>
 
