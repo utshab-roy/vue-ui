@@ -3,9 +3,11 @@
     <button @click="activeTab = 'TabB'">Tab B</button>
     <button @click="activeTab = 'TabC'">Tab C</button>
 
-    <TabA v-if="activeTab === 'TabA'"/>
-    <TabB v-if="activeTab === 'TabB'"/>
-    <TabC v-if="activeTab === 'TabC'"/>
+    /**
+    * when I have a requirements to switch between components
+    * I should implement in this approach
+    */
+    <component :is="activeTab"/>
 </template>
 
 <script>
