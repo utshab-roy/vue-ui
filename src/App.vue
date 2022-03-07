@@ -1,9 +1,9 @@
 <template>
-    <Watch />
+    <ProvideInject />
 </template>
 
 <script>
-import Watch from "./components/Watch.vue";
+import ProvideInject from "./components/ProvideInject.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +11,7 @@ export default {
             
         };
     },
-    components: { Watch }
+    components: { ProvideInject }
 }
 </script>
 
