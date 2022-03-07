@@ -1,27 +1,17 @@
 <template>
-    <h4>App component text</h4>
-    <!-- 
-        if we use slot for the child then the parent component css will be 
-        overwritten by parent even though child component has scoped css
-    -->
-    <ChildStyles/>
+    <Watch />
 </template>
 
 <script>
-import ChildStyles from './components/ChildStyles.vue'
-
+import Watch from "./components/Watch.vue";
 export default {
     name: "App",
     data() {
         return {
-        }
-    }, 
-    methods: {
+            
+        };
     },
-
-    components: {
-    ChildStyles
-    }
+    components: { Watch }
 }
 </script>
 
