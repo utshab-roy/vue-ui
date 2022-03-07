@@ -4,7 +4,7 @@
         <input type="text" placeholder="First Name" v-model="lastName">
     </div>
 
-    <PersonGreetings :firstName="firstName" :lastName="lastName"/>
+    <PersonGreetings :firstName="firstName" :lastName="lastName" @callHeros="callHeros"/>
 
 </template>
 
@@ -16,9 +16,14 @@ export default {
     setup() {
         const firstName = ref("");
         const lastName = ref("");
+
+        function callHeros(hero) {
+            alert(`Calling ${hero}`);
+        }
         return {
             firstName,
-            lastName
+            lastName,
+            callHeros,
         };
     },
     components: { PersonGreetings }
