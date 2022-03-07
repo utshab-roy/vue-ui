@@ -1,9 +1,9 @@
 <template>
-    <Person />
+    <ClickCounter />
 </template>
 
 <script>
-import Person from "./components/Person.vue";
+import ClickCounter from "./components/ClickCounter.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +11,7 @@ export default {
             
         };
     },
-    components: { Person }
+    components: { ClickCounter }
 }
 </script>
 
