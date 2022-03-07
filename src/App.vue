@@ -1,9 +1,13 @@
 <template>
-    <ClickCounter />
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
+
+    <PostList />
 </template>
 
 <script>
-import ClickCounter from "./components/ClickCounter.vue";
+import PostList from "./components/PostList.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +15,7 @@ export default {
             
         };
     },
-    components: { ClickCounter }
+    components: {PostList}
 }
 </script>
 
