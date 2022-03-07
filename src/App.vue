@@ -1,9 +1,9 @@
 <template>
-    <ProvideInject />
+    <TemplateRefComposition />
 </template>
 
 <script>
-import ProvideInject from "./components/ProvideInject.vue";
+import TemplateRefComposition from "./components/TemplateRefComposition.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +11,7 @@ export default {
             
         };
     },
-    components: { ProvideInject }
+    components: { TemplateRefComposition }
 }
 </script>
 
