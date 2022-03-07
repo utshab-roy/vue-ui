@@ -1,9 +1,9 @@
 <template>
-    <TemplateRefComposition />
+    <Person />
 </template>
 
 <script>
-import TemplateRefComposition from "./components/TemplateRefComposition.vue";
+import Person from "./components/Person.vue";
 export default {
     name: "App",
     data() {
@@ -11,7 +11,7 @@ export default {
             
         };
     },
-    components: { TemplateRefComposition }
+    components: { Person }
 }
 </script>
 
