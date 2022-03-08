@@ -1,24 +1,27 @@
-<template>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
-
-    <PostList />
-</template>
-
 <script>
-import PostList from "./components/PostList.vue";
+import { RouterLink, RouterView } from 'vue-router'
+
 export default {
     name: "App",
-    data() {
-        return {
-            
-        };
-    },
-    components: {PostList}
+    
 }
+
 </script>
 
+<template>
+  <header>
+
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Home</RouterLink> ||
+        <!-- <RouterLink to="/about">About</RouterLink> -->
+        <router-link to="/about">About2</router-link>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
+</template>
 <style scoped>
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
