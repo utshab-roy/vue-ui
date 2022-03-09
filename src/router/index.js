@@ -3,13 +3,18 @@ import Home from '../views/Home.vue'
 
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    { path: '/', name: 'home', component: Home },
-    // which is lazy-loaded when the route is visited
-    { path: '/destination/:id/:slug', name:'destination.show', component: () => import('@/views/DestinationShow.vue') },
-  ],
-  // linkActiveClass: 'router-link-active', // this class will be added automatically to the active link
+	history: createWebHistory(import.meta.env.BASE_URL),
+	routes: [
+		{ path: '/', name: 'home', component: Home },
+		// which is lazy-loaded when the route is visited
+		{
+			path: '/destination/:id/:slug',
+			name: 'destination.show',
+			component: () => import('@/views/DestinationShow.vue'),
+			props: route => ({id: parseInt(route.params.id)})
+		},
+	],
+	// linkActiveClass: 'router-link-active', // this class will be added automatically to the active link
 })
 
 export default router
