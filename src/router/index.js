@@ -7,7 +7,7 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'home', component: Home },
     // which is lazy-loaded when the route is visited
-    { path: '/destination/:id', name:'destination.show', component: () => import('@/views/DestinationShow.vue') },
+    { path: '/destination/:id/:slug', name:'destination.show', component: () => import('@/views/DestinationShow.vue') },
   ],
   // linkActiveClass: 'router-link-active', // this class will be added automatically to the active link
 })
