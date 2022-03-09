@@ -2,7 +2,9 @@
     <TheNavigation/>
 
     <div class="container">
-        <RouterView />
+        <!-- this key is important so that it create the component while working with AJAX call -->
+        <!-- this will make sure that while changing the route, component re create as $route.path is unique -->
+        <RouterView :key="$route.path" />
     </div>
 
 </template>

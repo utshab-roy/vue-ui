@@ -11,11 +11,11 @@
 <script>
 import sourceData from '@/data.json'
 export default {
-data() {
-    return {
-        destinations: sourceData.destinations
-    }
-},
+    data() {
+        return {
+            destinations: sourceData.destinations
+        }
+    },
 }
 
 </script>
