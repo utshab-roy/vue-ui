@@ -4,6 +4,21 @@ import sourceData from '@/Data.json'
 
 const routes = [
 	{ path: '/', name: 'home', component: Home },
+	{
+		path: '/protected',
+		name: 'protected',
+		component: () => import('@/views/Protected.vue'),
+		meta: {
+			requiresAuth: true
+		}
+	},
+	// router for login page
+	{
+		path: '/login',
+		name: 'login',
+		component: () => import('@/views/Login.vue'),
+
+	},
 	// which is lazy-loaded when the route is visited
 	{
 		path: '/destination/:id/:slug',
@@ -52,6 +67,14 @@ const router = createRouter({
 		})
 	}
 	// linkActiveClass: 'router-link-active', // this class will be added automatically to the active link
+})
+
+// this method will be called before each route change
+router.beforeEach((to, from,) => {
+	if (to.meta.requiresAuth && !window.user) {
+		// need to login if already not logged in
+		return { name: 'login' }
+	}
 })
 
 export default router
