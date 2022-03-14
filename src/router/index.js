@@ -46,6 +46,11 @@ const routes = [
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes,
+	scrollBehavior(to, from, savePosition) { // we can control the action more precisely using promise  
+		return savePosition || new Promise((resolve) => {
+			setTimeout(() => resolve({ top: 0, behavior: 'smooth' }), 100)
+		})
+	}
 	// linkActiveClass: 'router-link-active', // this class will be added automatically to the active link
 })
 
